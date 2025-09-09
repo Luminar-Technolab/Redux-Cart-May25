@@ -1,0 +1,148 @@
+
+
+            REACT - ADVANCED FRONT END TECHNOLOGY
+        ----------------------------------------------
+
+    1. React : is JS Library for building faster UI for web application
+    2. Features of React
+        - Virtual DOM
+        - Reusable Components
+        - JSX
+    3. JSX (JavaScript XML) : Is an JS extension for writing HTML codes, used in react to display contents in webpage
+        - JSX consists of JSX elements :
+            const variable-name = <starting-tag>content</ending-tag>
+        - Rules of JSX
+            1. Every JSX code must be inside a single tag it can be container tag / react fragments (<></>)
+            2. Every JSX tag must have closing tag.  <starting-tag>content</ending-tag> / self closing tags <tag-name/>
+            3. In JSX elements attributes or style properties / values must be in camel case (fontSize)
+            4. In JSX , attributes like 'class' must as "className" and 'for' as "htmlFor"
+            5. In JSX we can directly add js code using curly braces: {js code}
+    4. React App creation : 
+        - using vite : npm create vite@latest reactAppName -- --template react
+    5. File & Folder structure
+    6. React is  a collection Components, they are arranged in tree like structure. Root node of react app is App Component. 
+    7. Components : used to create UI, it can be an entire webpage or part of web page
+        - To create Components, Create a file with file name starts with capital letter, also Component name must same as its file name
+        - ways to create Components
+            - Functional Based / stateless Component : use JS pure function to build Component and it must return JSX
+            - Class Based / state full Component : use js class to build Component, it must have render method where we can give jsx code
+    8. Life cycle Methods of Component
+        - Mounting Phase : Putting JSX into DOM
+            - constructor()
+            - getDerivedStateFromProps()
+            - render()
+            - ComponentDidMount()
+        - Updating Phase : When Component get updated
+            - getDerivedStateFromProps()
+            - shouldComponentUpdate()
+            - render()
+            - getShapshotBeforeUpdate()
+            - componentDidUpdate()
+        - Unmounting Phase : Removing Component from DOM
+            - componentWillUnmount()
+
+            Class Based Component                       Functional based Component
+        --------------------------------------------------------------------------------
+        1. uses js class to build Component             1. uses js pure function
+        2. Statfull Component                           2. Stateless Component
+        3. Uses constructor for initialising values     3. NO need of constructor
+        4. Lifecycle methods are available              4. Lifecycle methods not available
+        5. 
+
+    9. Styling React Component
+        - Using Inline CSS : using style attribute
+            - syntax: style={{properties:value,...}}
+        - Using External CSS : using External css file
+        - Using CSS Module file : using .module.css extension file to define style using class selector.
+    10. Event Handling in react
+        - Binding function without argument : use function-name only to call the function
+        - Binding function with argument : call function use ()=>function-name(arg)
+        - Binding function with argument as event : call function use (event)=>function-name(event)
+    11. React props : Used to share datas from parent Component to its child, In react react only parent can share data to its child.
+        - Props os properties of a Component, props is an object so data stored as key and value. 
+        - parent can share its data to the child tag using its attributes
+        - using 'props' as child Component function argument, using props we can access data in child
+    12. Conditional rendering : we can control visbility of jsx element based on a condition, use ternary / truthy operator
+    13. Handling List in react : To display list in jsx use "map" array method. Use 'key' props to all duplicating jsx items in list, key must be unique and used to identify by react dom
+    14. React state : used to store values in a Component, whenever state changes Component also get re render. 
+    15. React Hooks : are predefined function for enabling react component Features in Functional components, all hooks name will start with "use" keyword
+        - How to use hooks in Functional component
+            - import hook in component
+            - call hook at top level of 
+        - Hooks can be of 2 types
+            - Predefined hooks
+            - Customised hooks : create a js file with name starts with "use", inside the file define js function to complete task 
+        - Common Hooks
+            - useState : used to create state in Functional component, it Returns a stateful value, and a function to update it.
+                const [stateValue, stateUpdationFunctionName] = useState(initialValue) 
+            - useEffect : used to add side effects to a component
+                useEffect(effect,dependency)
+                - dependency : can be 3 ways
+                    - no dependency : effect will apply all time in component
+                    - empty array : effect will apply only at the creation of component
+                    - [variable-name,...] : effect will apply not only at the creation of component but also  variable changes in component
+            - useRef : used to store mutable data without re rendering the component, it also helps to get the reference of a html element into component
+                -  useRef(initialValue) it return object called current.
+    16. Handling Form in React : React handle input data mainly in 2 ways
+        - Controlled component : here input data will store inside the component state, so component has more control over the form data
+        - Uncontrolled component : here component can get the reference of input tag to get the input tag, here component doesnot has more control over the form data
+    17. Set up Route/path/url to a component
+        - Install react-router-dom Library : npm i react-router-dom
+        - Set up path for component using react-router-dom
+            1. Entire react app must be render inside the 'BrowserRouter' of react-router-dom Library. 
+            2. Place all component neds to be set up path inside Routes component, inside Routes use Route component to set up path for component using its 'path' and 'element' attributes
+        - Dynamic Routing : to set up path  followed with column is used to store dynamic values in a url (ex: https://redux-cart-july24.netlify.app/:id/view) id is dynamic variable 
+    18. API Handling in React : 
+        - fetch method
+        - Axios Library : Promise based HTTP request Handling
+            - Install axios : npm i axios
+            - Axios Instance is used to make api call :
+                - Using : axios(requestConfiguration)
+                    - requestConfiguration : is object with predefined keys (method,url,data,headers...)
+            - Axios methods (GET,PUT , POST, DELETE) : axios.get(url)
+    19. Data Shairing Technques in React
+        - State Lifting : To share data from one component to another by lifting the data to their common parent and parent can share the lifted state/data using props with its children
+        - Redux : A common storage will hold all data and it can be accessed by all components in the react app
+
+
+
+                JSON SERVER - REST API CREATION
+            ------------------------------------------
+    1. Create a folder for json server
+    2. Create json file to store data
+    3. Install json-server : npm i json-server
+    4. To run json file (available in localhost:3000) : npx json-server json-file-name
+
+                DEPLOYING JSON SERVER USING NODE
+        ------------------------------------------------
+    1. Install stable version of json-server : npm i json-server@0.17.0
+    2. Create index.js file
+    3. Inside index,js file
+        - import json-server
+        - create server using Library json-server using create method
+        - import json file
+        - create middleware : using defaults()
+        - define port number to run the app in localhost
+        - use middleware in server
+        - define routes for client request (api endpoints for server )
+        - run server for client request using listen method
+
+                REDUX : STATE MANAGEMENT TOOL
+            ----------------------------------------
+    1. A JS library for predictable and maintainable global state management and used in react to avoid props drilling
+    2. REDUX consists of 2 Library
+        - REDUX TOOLKIT : The official, opinionated, batteries-included toolset for efficient Redux development, npm install @reduxjs/toolkit
+            - Create common storage: configureStore() and store immutable (objects / array) data in storage
+            - Actions : to update data in store from component and they are similiar to function, to execute action it should be dispatch from component action output automatically return to reducers in Redux, use createAction() or createAsyncThunk()
+            - Reducer : used to update data in storage
+            - Slice : used to combine both action & reducer,  use createSlice()
+        - REACT REDUX : Official React bindings for Redux, npm install react-redux
+            - 'store' property of 'Provider' component from react-redux : used to provide redux storage to react components
+            - Hooks : 
+                - useDispatch() : hook used to dispatch action from component and it return dispatch function which is capable of executing action
+                - useSelector(state=>state.reducername) : hook used to select data from store, return state from the store corresponding to the reducer name
+
+
+        
+
+
