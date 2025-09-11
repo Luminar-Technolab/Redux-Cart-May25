@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <nav className='flex justify-between p-5 text-xl bg-violet-900 text-white font-bold fixed w-full '>
+    <nav className='flex justify-between p-5 text-lg bg-violet-900 text-white font-bold fixed w-full '>
         <Link to={'/'} className='text-2xl'> <i className="fa-solid fa-truck-fast me-1"></i> <span>Daily Cart</span> </Link>
         <ul className='flex'>
             <li className='mx-5'><Link to={'/wishlist'}><i className="fa-solid fa-heart text-red-500 me-1"></i>Wishlist<span className='p-1 bg-black  rounded-full ms-1'> 10 </span></Link></li>
