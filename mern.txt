@@ -83,6 +83,9 @@
                     - [variable-name,...] : effect will apply not only at the creation of component but also  variable changes in component
             - useRef : used to store mutable data without re rendering the component, it also helps to get the reference of a html element into component
                 -  useRef(initialValue) it return object called current.
+            - useDispatch()
+            - useSelector()
+            - useParams() : Used to get dynamic values in url, it is an object
     16. Handling Form in React : React handle input data mainly in 2 ways
         - Controlled component : here input data will store inside the component state, so component has more control over the form data
         - Uncontrolled component : here component can get the reference of input tag to get the input tag, here component doesnot has more control over the form data
@@ -133,9 +136,9 @@
     2. REDUX consists of 2 Library
         - REDUX TOOLKIT : The official, opinionated, batteries-included toolset for efficient Redux development, npm install @reduxjs/toolkit
             - Create common storage: configureStore() and store immutable (objects / array) data in storage
-            - Actions : to update data in store from component and they are similiar to function, to execute action it should be dispatch from component action output automatically return to reducers in Redux, use createAction() or createAsyncThunk()
+            - Actions : to update data in store from component and they are similiar to function, to execute action it should be dispatch from component action output automatically return to reducers in Redux, use createAction() or createAsyncThunk() : to create asynchronous actions
             - Reducer : used to update data in storage
-            - Slice : used to combine both action & reducer,  use createSlice()
+            - Slice : used to combine both action & reducer,  use createSlice(), extraReducer is used to handling result of asynchronous actions in slice, it uses builder object which can define different cases (pending/fulfilled/rejected)
         - REACT REDUX : Official React bindings for Redux, npm install react-redux
             - 'store' property of 'Provider' component from react-redux : used to provide redux storage to react components
             - Hooks : 
